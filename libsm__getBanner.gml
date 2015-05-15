@@ -1,4 +1,4 @@
-///string libsm__getBanner(int songID)
+///string libsm__getBanner(array songID)
 
 // Returns the path to the song's banner file
 // Returns empty string if no banner could be found

@@ -1,4 +1,4 @@
-///string libsm__getCDTitle(int songID)
+///string libsm__getCDTitle(array songID)
 
 // Returns the path to the song's CD title file
 // Returns empty string if no CD title could be found

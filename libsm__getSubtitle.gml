@@ -1,4 +1,4 @@
-///string libsm__getSubtitle(int songID, bool translit)
+///string libsm__getSubtitle(array songID, bool translit)
 
 // Returns song subtitle
 // If translit is TRUE, the transliterated subtitle will be returned instead

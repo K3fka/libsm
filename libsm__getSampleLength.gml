@@ -1,4 +1,4 @@
-///float libsm__getSampleLength(int songID)
+///float libsm__getSampleLength(array songID)
 
 // Returns the duration (in seconds) of the music sample
 // Returns -1 if no duration was defined

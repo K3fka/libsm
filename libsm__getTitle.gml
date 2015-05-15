@@ -1,4 +1,4 @@
-///string libsm__getTitle(int songID, bool translit)
+///string libsm__getTitle(array songID, bool translit)
 
 // Returns song title
 // If translit is TRUE, the transliterated title will be returned instead

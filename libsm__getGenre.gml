@@ -1,4 +1,4 @@
-///string libsm__getGenre(int songID)
+///string libsm__getGenre(array songID)
 
 // Returns song genre
 // Returns empty string if no genre was specified

@@ -1,4 +1,4 @@
-///string libsm__getMusic(int songID)
+///string libsm__getMusic(array songID)
 
 // Returns the path to the song's music file
 // Returns empty string if no music file could be found

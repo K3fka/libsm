@@ -1,4 +1,4 @@
-///string libsm__getCredit(int songID)
+///string libsm__getCredit(array songID)
 
 // Returns song credit (simfile author or pack/mix)
 // Returns empty string if no credit was specified

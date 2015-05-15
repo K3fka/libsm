@@ -1,4 +1,4 @@
-///int libsm__getSampleStart(int songID)
+///int libsm__getSampleStart(array songID)
 
 // Returns the time (in seconds) that should be used as the beginning of the music sample
 // Returns -1 if no sample start time was defined

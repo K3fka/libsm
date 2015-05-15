@@ -1,4 +1,4 @@
-///string libsm__getArtist(int songID, bool translit)
+///string libsm__getArtist(array songID, bool translit)
 
 // Returns song artist
 // If translit is TRUE, the transliterated artist will be returned instead
