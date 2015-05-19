@@ -18,6 +18,7 @@ while(!file_text_eof(file)) {
     if (string_pos(keyword, line)) {
        value = string_copy(line, string_length(keyword) + 1,      //+1 to filter out the colon
                string_length(line) - string_length(keyword) - 3); //-3 to filter out semicolon
+       break;
        }
     }
     
