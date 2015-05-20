@@ -7,4 +7,4 @@ var songID, keyword;
 songID = argument[0];
 keyword = "#OFFSET:";
 
-return libsm__readMetadata(songID, keyword);
+return real(libsm__readMetadata(songID, keyword));

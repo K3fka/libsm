@@ -19,12 +19,11 @@ bpmList = libsm__readMetadata(songID, keyword);
 bpmList += ","; //this is really hacky...
 
 //Get the key=value pairs into an array
-var i = 0;
-while (string_pos(",", bpmList)) {
+for (var i = 0; string_pos(",", bpmList); i++) {
     var p = string_pos(",", bpmList);
     tmpArray[i] = string_copy(bpmList, 0, p - 1);
+    consoleLog(tmpArray[i]);
     bpmList = string_delete(bpmList, 1, p);
-    i++;
     }
 
 //Error handling
@@ -41,6 +40,7 @@ for (var i = 0; i < array_length_1d(tmpArray); i++) {
     var m = floor(real(string_copy(tmpArray[i], 0, p - 1)));
     var b = real(string_delete(tmpArray[i], 1, p));
     ds_list_insert(tmpList, m, b);
+    consoleLog(m, b);
     }
 
 //Encode as string and such to prevent memory leaks
