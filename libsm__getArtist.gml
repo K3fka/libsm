@@ -9,7 +9,7 @@ songID = argument[0];
 if (argument_count > 1) {
    translit = argument[1];
    } else {
-   translit = FALSE;
+   translit = false;
    }
 
 if (translit) {
