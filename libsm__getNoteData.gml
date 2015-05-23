@@ -37,6 +37,9 @@ while(!file_text_eof(file)) {
                     }
                 line = file_text_readln(file);
                 if (string_pos(",", line)) {
+                    tmpArray[i] = string_replace_all(tmpArray[i], chr(10), ","); //replace newline with comma
+                    tmpArray[i] = string_replace_all(tmpArray[i], chr(13), ""); //get rid of carriage return (windows line endings)
+                    tmpArray[i] = string_delete(tmpArray[i], string_length(tmpArray[i]), 1); //truncate trailing comma
                     ds_list_insert(tmpList, i, tmpArray[i]);
                     i++;
                     } else {
