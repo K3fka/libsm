@@ -1,4 +1,4 @@
-///string libsm__getDisplayBPM(array songID)
+///string libsm__getDisplayBPM(string song)
 
 // Returns the BPM to be displayed in the song listing
 // Returns empty string if no BPM was specified
@@ -8,8 +8,8 @@
 //     *            (bpm changes randomly)
 // It's up to you to parse this yourself
 
-var songID, keyword;
-songID = argument[0];
+var song, keyword;
+song = argument[0];
 keyword = "#MUSIC:";
 
-return libsm__readMetadata(songID, keyword);
+return libsm__readMetadata(song, keyword);

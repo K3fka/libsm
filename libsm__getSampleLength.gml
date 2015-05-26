@@ -1,13 +1,13 @@
-///float libsm__getSampleLength(array songID)
+///float libsm__getSampleLength(string song)
 
 // Returns the duration (in seconds) of the music sample
 // Returns -1 if no duration was defined
 
-var songID, keyword, value;
-songID = argument[0];
+var song, keyword, value;
+song = argument[0];
 keyword = "#SAMPLELENGTH:";
 
-value = libsm__readMetadata(songID, keyword);
+value = libsm__readMetadata(song, keyword);
 if (value != "") {
    value = real(value);
    } else {

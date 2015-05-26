@@ -1,27 +1,23 @@
-///string libsm__readMetadata(int songID, string keyword)
+///string libsm__readMetadata(string song, string keyword)
 
 // sm files store metadata in the format #KEY:VALUE;
-// This function returns the VALUE portion of the line in an sm file with the
-// specified key
+// This function returns the VALUE portion of the line in an sm file with the specified key
 // Returns empty string if the line was not found
 
-var songID, keyword, value, line, file;
-songID = argument[0];
+var song, keyword, value;
+song = argument[0];
 keyword = argument[1];
 
 value = ""; //On error return empty string
 
-file = file_text_open_read(songID[1]);
+var p = string_pos(keyword, song);
 
-while(!file_text_eof(file)) {
-    line = file_text_readln(file);
-    if (string_pos(keyword, line)) {
-       value = string_copy(line, string_length(keyword) + 1,      //+1 to filter out the colon
-               string_length(line) - string_length(keyword) - 3); //-3 to filter out semicolon
-       break;
-       }
+if (p) {
+    song = string_delete(song, 1, p);
+    value = string_copy(song, 1, string_pos(";", song) - 1); //-1 to get rid of semicolon
+    value = string_copy(value, string_pos(":", value) + 1, string_length(value)); //get rid of #keyword: portion
+    value = string_replace_all(value, chr(10), ""); //get rid of \n
+    value = string_replace_all(value, chr(13), ""); //get rid of \r
     }
-    
-file_text_close(file);
-    
+
 return value;

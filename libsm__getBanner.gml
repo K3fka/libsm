@@ -1,10 +1,10 @@
-///string libsm__getBanner(array songID)
+///string libsm__getBanner(string song)
 
 // Returns the path to the song's banner file
 // Returns empty string if no banner could be found
 
-var songID, keyword;
-songID = argument[0];
+var song, keyword;
+song = argument[0];
 keyword = "#BANNER:";
 
-return libsm__readMetadata(songID, keyword);
+return libsm__readMetadata(song, keyword);

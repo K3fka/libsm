@@ -1,10 +1,10 @@
-///float libsm__getOffset(array songID)
+///float libsm__getOffset(string song)
 
 // Returns offset between song and note start times, in seconds
 // Returns 0 if no offset was specified
 
-var songID, keyword;
-songID = argument[0];
+var song, keyword;
+song = argument[0];
 keyword = "#OFFSET:";
 
-return real(libsm__readMetadata(songID, keyword));
+return real(libsm__readMetadata(song, keyword));
