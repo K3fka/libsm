@@ -13,5 +13,7 @@ if (file != -1) {
         contents += file_text_readln(file);
         }
     }
+
+file_text_close(file);
     
 return contents;
