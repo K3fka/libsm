@@ -5,7 +5,7 @@
 // difficulty should be "Beginner", "Easy", "Medium", "Hard", "Challenging", or "Edit"
 // More info here: http://www.stepmania.com/wiki/file-formats/sm (#NOTES section)
 
-// Take the string returned here and use ds_list_read() to recreate the ds_map
+// Take the string returned here and use ds_list_read() to recreate the ds_lidt
 // Remember you will need to destroy the list when you are done parsing
 // The keys in the resulting ds_map will correspond to "measure" numbers
 // The values will be in the format "0000,0000,..." (single) or "00000000,00000000,..." (double)
@@ -27,27 +27,27 @@ while (string_pos(chartType + ":", song)) {
     if (string_pos(difficulty + ":", song) < string_pos(";", song)) {
         while (string_pos(":", song) < string_pos(";", song)) {
             song = string_delete(song, 1, string_pos(chr(10), song)); //skip any lines between difficulty and actual note data
-            }
+        }
         var i = 0;
         while (string_pos(chr(10), song) < string_pos(";", song)) {
             var p = string_pos(chr(10), song);
             var line = string_copy(song, 1, p);
             song = string_delete(song, 1, p);
             if (array_length_1d(tmpArray) < (i + 1)) {
-                tmpArray[i] = "";
-                }
+            tmpArray[i] = "";
+            }
             if (string_pos(",", line)) {
                 tmpArray[i] = string_replace_all(tmpArray[i], chr(10), ","); //replace \n with comma
                 tmpArray[i] = string_replace_all(tmpArray[i], chr(13), ""); //get rid of \r (part of Windows line endings)
                 tmpArray[i] = string_delete(tmpArray[i], string_length(tmpArray[i]), 1); //truncate trailing comma
                 ds_list_insert(tmpList, i, tmpArray[i]);
                 i++;
-                } else {
+            } else {
                 tmpArray[i] += line;
-                }
             }
         }
     }
+}
 
 //Encode as string and such to prevent memory leaks
 var list = ds_list_write(tmpList);

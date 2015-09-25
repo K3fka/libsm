@@ -7,15 +7,15 @@
 var song, translit, keyword;
 song = argument[0];
 if (argument_count > 1) {
-   translit = argument[1];
-   } else {
-   translit = false;
-   }
+    translit = argument[1];
+} else {
+    translit = false;
+}
 
 if (translit) {
-   keyword = "#ARTISTTRANSLIT:";
-   } else {
-   keyword = "#ARTIST:";
-   }
+    keyword = "#ARTISTTRANSLIT:";
+} else {
+    keyword = "#ARTIST:";
+}
 
 return libsm__readMetadata(song, keyword);

@@ -18,14 +18,14 @@ while (string_pos(chartType + ":", song)) {
     if (string_pos(difficulty + ":", song) < string_pos(";", song)) {
         repeat (2) {
             song = string_delete(song, 1, string_pos(chr(10), song));
-            }
-        rating = string_copy(song, 1, string_pos(":", song));
         }
+        rating = string_copy(song, 1, string_pos(":", song));
     }
+}
 
 rating = real(string_digits(rating));
 if (rating) {
     return rating;
-    } else {
+} else {
     return -1;
-    }
+}

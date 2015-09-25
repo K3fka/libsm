@@ -18,6 +18,6 @@ if (p) {
     value = string_copy(value, string_pos(":", value) + 1, string_length(value)); //get rid of #keyword: portion
     value = string_replace_all(value, chr(10), ""); //get rid of \n
     value = string_replace_all(value, chr(13), ""); //get rid of \r
-    }
+}
 
 return value;

@@ -24,7 +24,7 @@ for (var i = 0; string_pos(",", bpmList); i++) {
     tmpArray[i] = string_copy(bpmList, 0, p - 1);
     consoleLog(tmpArray[i]);
     bpmList = string_delete(bpmList, 1, p);
-    }
+}
 
 //Error handling
 if (tmpArray[0] == "0") {
@@ -32,7 +32,7 @@ if (tmpArray[0] == "0") {
     var error = ds_list_write(tmpList);
     ds_list_destroy(tmpList);
     return error;
-    }
+}
 
 //Format array into ds_list
 for (var i = 0; i < array_length_1d(tmpArray); i++) {
@@ -41,7 +41,7 @@ for (var i = 0; i < array_length_1d(tmpArray); i++) {
     var b = real(string_delete(tmpArray[i], 1, p));
     ds_list_insert(tmpList, m, b);
     consoleLog(m, b);
-    }
+}
 
 //Encode as string and such to prevent memory leaks
 var list = ds_list_write(tmpList);

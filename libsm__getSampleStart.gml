@@ -9,9 +9,9 @@ keyword = "#SAMPLESTART:";
 
 value = libsm__readMetadata(song, keyword);
 if (value != "") {
-   value = real(value);
-   } else {
-   value = -1;
-   }
+    value = real(value);
+} else {
+    value = -1;
+}
 
 return value;

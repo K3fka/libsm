@@ -23,7 +23,7 @@ for (var i = 0; string_pos(",", stopList); i++) {
     var p = string_pos(",", stopList);
     tmpArray[i] = string_copy(stopList, 0, p - 1);
     stopList = string_delete(stopList, 1, p);
-    }
+}
 
 //Error handling
 if (tmpArray[0] == "0") {
@@ -31,7 +31,7 @@ if (tmpArray[0] == "0") {
     var error = ds_list_write(tmpList);
     ds_list_destroy(tmpList);
     return error;
-    }
+}
 
 //Format array into ds_list
 for (var i = 0; i < array_length_1d(tmpArray); i++) {
@@ -39,7 +39,7 @@ for (var i = 0; i < array_length_1d(tmpArray); i++) {
     var m = floor(real(string_copy(tmpArray[i], 0, p - 1)));
     var d = real(string_delete(tmpArray[i], 1, p));
     ds_list_insert(tmpList, m, d);
-    }
+}
 
 //Encode as string and such to prevent memory leaks
 var list = ds_list_write(tmpList);
