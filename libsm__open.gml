@@ -12,8 +12,7 @@ if (file != -1) {
     while (!file_text_eof(file)) {
         contents += file_text_readln(file);
     }
+    file_text_close(file);
 }
-
-file_text_close(file);
     
 return contents;
