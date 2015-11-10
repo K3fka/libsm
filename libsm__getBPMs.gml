@@ -1,20 +1,15 @@
 ///string libsm__getBPMs(string song)
 
-// Returns a ds_list encoded as a string containing all BPM values
-// Take the string returned here and use ds_list_read() to recreate the ds_map
-// Remember you will need to destroy the list when you are done parsing
+// Returns a 2D array containing all BPM values
+// [x, 0] is the beat offset, and [x, 1] is the BPM value
 
-// Keys in the resulting ds_list correspond to measure numbers
-// Values represent the BPM values that begin at these measures
+// Return value will be a 2D array with the key/value 0 => -1 on error
 
-// Return value will be an encoded ds_list with the key/value 0 => -1 on error
-
-var song, keyword, bpmList, tmpArray, tmpList;
+var song, keyword, bpmArray, tmpArray, tmpList;
 song = argument[0];
 keyword = "#BPMS:";
 
 tmpArray[0] = 0;
-tmpList = ds_list_create();
 bpmList = libsm__readMetadata(song, keyword);
 bpmList += ","; //this is really hacky...
 
@@ -22,29 +17,23 @@ bpmList += ","; //this is really hacky...
 for (var i = 0; string_pos(",", bpmList); i++) {
     var p = string_pos(",", bpmList);
     tmpArray[i] = string_copy(bpmList, 0, p - 1);
-    consoleLog(tmpArray[i]);
     bpmList = string_delete(bpmList, 1, p);
-}
+    }
 
 //Error handling
 if (tmpArray[0] == "0") {
-    ds_list_insert(tmpList, 0, -1);
-    var error = ds_list_write(tmpList);
-    ds_list_destroy(tmpList);
-    return error;
-}
+    bpmArray[0, 0] = 0;
+    bpmArray[0, 1] = -1;
+    return bpmArray;
+    }
 
 //Format array into ds_list
 for (var i = 0; i < array_length_1d(tmpArray); i++) {
     var p = string_pos("=", tmpArray[i]);
-    var m = floor(real(string_copy(tmpArray[i], 0, p - 1)));
+    var o = floor(real(string_copy(tmpArray[i], 0, p - 1)));
     var b = real(string_delete(tmpArray[i], 1, p));
-    ds_list_insert(tmpList, m, b);
-    consoleLog(m, b);
-}
+    bpmArray[i, 0] = o;
+    bpmArray[i, 1] = b;
+    }
 
-//Encode as string and such to prevent memory leaks
-var list = ds_list_write(tmpList);
-ds_list_destroy(tmpList);
-
-return list;
+return bpmArray;
