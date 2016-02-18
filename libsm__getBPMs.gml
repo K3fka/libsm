@@ -18,22 +18,22 @@ for (var i = 0; string_pos(",", bpmList); i++) {
     var p = string_pos(",", bpmList);
     tmpArray[i] = string_copy(bpmList, 0, p - 1);
     bpmList = string_delete(bpmList, 1, p);
-    }
+}
 
 //Error handling
 if (tmpArray[0] == "0") {
     bpmArray[0, 0] = 0;
     bpmArray[0, 1] = -1;
     return bpmArray;
-    }
+}
 
-//Format array into ds_list
+//Split our pairs into a 2D array
 for (var i = 0; i < array_length_1d(tmpArray); i++) {
     var p = string_pos("=", tmpArray[i]);
     var o = floor(real(string_copy(tmpArray[i], 0, p - 1)));
     var b = real(string_delete(tmpArray[i], 1, p));
     bpmArray[i, 0] = o;
     bpmArray[i, 1] = b;
-    }
+}
 
 return bpmArray;
