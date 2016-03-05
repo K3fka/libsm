@@ -1,11 +1,11 @@
-///string libsm__getBPMs(string song)
+///array libsm__getBPMs(string song)
 
 // Returns a 2D array containing all BPM values
 // [x, 0] is the beat offset, and [x, 1] is the BPM value
 
 // Return value will be a 2D array with the key/value 0 => -1 on error
 
-var song, keyword, bpmArray, tmpArray, tmpList;
+var song, keyword, bpmArray, tmpArray, tmpList, bpmList;
 song = argument[0];
 keyword = "#BPMS:";
 

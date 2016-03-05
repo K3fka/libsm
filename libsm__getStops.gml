@@ -1,11 +1,11 @@
-///string libsm__getStops(string song)
+///array libsm__getStops(string song)
 
 // Returns a 2D array containing all Stop durations
 // [x, 0] is the beat offset, and [x, 1] is the Stop duration
 
 // Return value will be a 2D array with the key/value 0 => -1 on error
 
-var song, keyword, stopList, tmpArray, tmpList;
+var song, keyword, stopList, tmpArray, tmpList, stopList;
 song = argument[0];
 keyword = "#STOPS:";
 
