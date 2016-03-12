@@ -30,7 +30,7 @@ if (tmpArray[0] == "0") {
 //Split our pairs into a 2D array
 for (var i = 0; i < array_length_1d(tmpArray); i++) {
     var p = string_pos("=", tmpArray[i]);
-    var o = floor(real(string_copy(tmpArray[i], 0, p - 1)));
+    var o = real(string_copy(tmpArray[i], 0, p - 1));
     var d = real(string_delete(tmpArray[i], 1, p));
     stopArray[i, 0] = o;
     stopArray[i, 1] = d;
