@@ -5,7 +5,7 @@
 // difficulty should be "Beginner", "Easy", "Medium", "Hard", "Challenging", or "Edit"
 // More info here: http://www.stepmania.com/wiki/file-formats/sm (#NOTES section)
 
-// Take the string returned here and use ds_list_read() to recreate the ds_map
+// Take the string returned here and use ds_list_read() to recreate the ds_list
 // Remember you will need to destroy the list when you are done parsing
 // The keys in the resulting ds_map will correspond to "measure" numbers
 // The values will be in the format "0000,0000,..." (single) or "00000000,00000000,..." (double)
