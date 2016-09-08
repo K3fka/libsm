@@ -3,7 +3,7 @@
 // Returns a 2D array containing all BPM values
 // [x, 0] is the beat offset, and [x, 1] is the BPM value
 
-// Return value will be a 2D array with the key/value 0 => -1 on error
+// Returns -1 on error
 
 var song, keyword, bpmArray, tmpArray, tmpList, bpmList;
 song = argument[0];
@@ -22,9 +22,7 @@ for (var i = 0; string_pos(",", bpmList); i++) {
 
 //Error handling
 if (tmpArray[0] == "0") {
-    bpmArray[0, 0] = 0;
-    bpmArray[0, 1] = -1;
-    return bpmArray;
+    return -1;
 }
 
 //Split our pairs into a 2D array
